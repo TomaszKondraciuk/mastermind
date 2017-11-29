@@ -1,4 +1,4 @@
-// Tworze tablice, ktora bedzie przechwywala kod
+// Tworze tablice, ktora bedzie przechowywala kod
 var arr = [];
 
 // Generowanie szyfru
