@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <title>Gra Mastermind</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Tomasz Kondraciuk - Front-End Web Developer">
+    <meta name="keywords" content="front-end, Tomasz Kondraciuk, portfolio, kontakt, web">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta property="og:url" content="http://tomaszkondraciuk.pl">
+    <meta property="og:title" content="Tomasz Kondraciuk - Front-End Web Developer">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Projektowanie i tworzenie stron internetowych">
+    <meta property="og:image" content="http://mm.tomaszkondraciuk.pl/screen_mm.png">
+    <link href='https://fonts.googleapis.com/css?family=Hammersmith+One&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+
+
+    <div class="wrapper">
+        <button id="myBtn">GAME RULES</button>
+
+        <div id="myModal" class="modal">
+
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Playing the Game</p>
+                <p class="gameRules">Once the code maker(computer) has created the secret code, the code breaker(you) may place any combination of colored guess pegs on the first line of 4 peg holes.</p>
+                <p class="gameRules">The code maker will use the white pegs, which indicate each peg that is a correct color but wrong position, or a black peg to indicate each peg is in a correct position and a right color. If neither are true, then no peg should be placed. The code maker may place these pegs in any order in the peg holes arranged in the square pattern next to the line of peg holes holding the guess pegs being answered.</p>
+                <p class="gameRules">The answer and guess pegs stay in their positions until the end of the game.</p>
+                <p class="gameRules">Play continues until the code is discovered or there are no remaining guesses.</p>
+                <p class="gameRules"><a href="http://howdoyouplayit.com/mastermind-board-game-rules-how-do-you-play-mastermind" target="_blank" id="link">SOURCE</a></p>
+            </div>
+
+        </div>
+
+
+        <div id="board">
+            <div class="level1">
+                <div class="answer">
+                    <div class="socketSmall"></div>
+                    <div class="socketSmall"></div>
+                    <div class="socketSmall"></div>
+                    <div class="socketSmall"></div>
+                </div>
+                <div class="request">
+                    <div class="socketBig">
+                        <p class="yourLevel">1</p>
+                    </div>
+                    <div class="socketBig">
+                        <p class="yourLevel">1</p>
+                    </div>
+                    <div class="socketBig">
+                        <p class="yourLevel">1</p>
+                    </div>
+                    <div class="socketBig">
+                        <p class="yourLevel">1</p>
+                    </div>
+                </div>
+            </div>
+            <div class="level2">
+                <div class="answer">
+                    <div class="socketSmall"></div>
+                    <div class="socketSmall"></div>
+                    <div class="socketSmall"></div>
+                    <div class="socketSmall"></div>
+                </div>
+                <div class="request">
+                    <div class="socketBig">
+                        <p class="yourLevel">2</p>
+                    </div>
+                    <div class="socketBig">
+                        <p class="yourLevel">2</p>
+                    </div>
+                    <div class="socketBig">
+                        <p class="yourLevel">2</p>
+                    </div>
+                    <div class="socketBig">
+                        <p class="yourLevel">2</p>
+                    </div>
+                </div>
+            </div>
+            <div class="level3">
+                <div class="answer">
+                    <div class="socketSmall"></div>
+                    <div class="socketSmall"></div>
+                    <div class="socketSmall"></div>
+                    <div class="socketSmall"></div>
+                </div>
+                <div class="request">
+                    <div class="socketBig">
+                        <p class="yourLevel">3</p>
+                    </div>
+                    <div class="socketBig">
+                        <p class="yourLevel">3</p>
+                    </div>
+                    <div class="socketBig">
+                        <p class="yourLevel">3</p>
+                    </div>
+                    <div class="socketBig">
+                        <p class="yourLevel">3</p>
+                    </div>
+                </div>
+            </div>
+            <div class="level4">
+                <div class="answer">
+                    <div class="socketSmall"></div>
+                    <div class="socketSmall"></div>
+                    <div class="socketSmall"></div>
+                    <div class="socketSmall"></div>
+                </div>
+                <div class="request">
+                    <div class="socketBig">
+                        <p class="yourLevel">4</p>
+                    </div>
+                    <div class="socketBig">
+                        <p class="yourLevel">4</p>
+                    </div>
+                    <div class="socketBig">
+                        <p class="yourLevel">4</p>
+                    </div>
+                    <div class="socketBig">
+                        <p class="yourLevel">4</p>
+                    </div>
+                </div>
+            </div>
+            <div class="level5">
+                <div class="answer">
+                    <div class="socketSmall"></div>
+                    <div class="socketSmall"></div>
+                    <div class="socketSmall"></div>
+                    <div class="socketSmall"></div>
+                </div>
+                <div class="request">
+                    <div class="socketBig">
+                        <p class="yourLevel">5</p>
+                    </div>
+                    <div class="socketBig">
+                        <p class="yourLevel">5</p>
+                    </div>
+                    <div class="socketBig">
+                        <p class="yourLevel">5</p>
+                    </div>
+                    <div class="socketBig">
+                        <p class="yourLevel">5</p>
+                    </div>
+                </div>
+            </div>
+            <div class="level6">
+                <div class="answer">
+                    <div class="socketSmall"></div>
+                    <div class="socketSmall"></div>
+                    <div class="socketSmall"></div>
+                    <div class="socketSmall"></div>
+                </div>
+                <div class="request">
+                    <div class="socketBig">
+                        <p class="yourLevel">6</p>
+                    </div>
+                    <div class="socketBig">
+                        <p class="yourLevel">6</p>
+                    </div>
+                    <div class="socketBig">
+                        <p class="yourLevel">6</p>
+                    </div>
+                    <div class="socketBig">
+                        <p class="yourLevel">6</p>
+                    </div>
+                </div>
+            </div>
+            <div class="level7">
+                <div class="answer">
+                    <div class="socketSmall"></div>
+                    <div class="socketSmall"></div>
+                    <div class="socketSmall"></div>
+                    <div class="socketSmall"></div>
+                </div>
+                <div class="request">
+                    <div class="socketBig">
+                        <p class="yourLevel">7</p>
+                    </div>
+                    <div class="socketBig">
+                        <p class="yourLevel">7</p>
+                    </div>
+                    <div class="socketBig">
+                        <p class="yourLevel">7</p>
+                    </div>
+                    <div class="socketBig">
+                        <p class="yourLevel">7</p>
+                    </div>
+                </div>
+            </div>
+            <div class="level8">
+                <div class="answer">
+                    <div class="socketSmall"></div>
+                    <div class="socketSmall"></div>
+                    <div class="socketSmall"></div>
+                    <div class="socketSmall"></div>
+                </div>
+                <div class="request">
+                    <div class="socketBig">
+                        <p class="yourLevel">8</p>
+                    </div>
+                    <div class="socketBig">
+                        <p class="yourLevel">8</p>
+                    </div>
+                    <div class="socketBig">
+                        <p class="yourLevel">8</p>
+                    </div>
+                    <div class="socketBig">
+                        <p class="yourLevel">8</p>
+                    </div>
+                </div>
+            </div>
+            <div class="level9">
+
+                <div class="request">
+                    <div class="socketBig">
+                        <p class="yourLevel">SEC</p>
+                    </div>
+                    <div class="socketBig">
+                        <p class="yourLevel">RED</p>
+                    </div>
+                    <div class="socketBig">
+                        <p class="yourLevel">CO</p>
+                    </div>
+                    <div class="socketBig">
+                        <p class="yourLevel">DE</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="checkSpace">
+        <button id="check">CHECK!</button>
+        <div class="gameStatus winInfo">YOU WON!<svg class="reset" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20 0C9 0 0 9 0 20v60c0 11 9 20 20 20h60c11 0 20-9 20-20V20c0-11-9-20-20-20H20zm28.6 14.2c12.3 0 23 6.6 29 16.4l7-4.3.4 23.5-20.8-11 7.5-4.6c-4.7-7.8-13.3-13-23-13-11.5 0-21.3 7-25.2 17 0 .3 0 .6-.2 1-1 2-3.2 3-5 2.3-1-.5-1.8-1.7-2-3.2L17 36C22 23.2 34.3 14 48.6 14zM15 50.2l20.8 11-7.5 4.6c4.7 7.8 13.3 13 23 13 11.5 0 21.3-7 25.2-17 0-.3 0-.6.2-1 1-2 3.2-3 5-2.3 1 .5 1.8 1.7 2 3.2L83 64C78 76.8 65.7 86 51.4 86c-12.3 0-23-6.6-29-16.4l-7 4.3-.4-23.5z"/></svg></div>
+        <div class="gameStatus loseInfo">YOU LOSE.<svg class="reset" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path class="reset" d="M20 0C9 0 0 9 0 20v60c0 11 9 20 20 20h60c11 0 20-9 20-20V20c0-11-9-20-20-20H20zm28.6 14.2c12.3 0 23 6.6 29 16.4l7-4.3.4 23.5-20.8-11 7.5-4.6c-4.7-7.8-13.3-13-23-13-11.5 0-21.3 7-25.2 17 0 .3 0 .6-.2 1-1 2-3.2 3-5 2.3-1-.5-1.8-1.7-2-3.2L17 36C22 23.2 34.3 14 48.6 14zM15 50.2l20.8 11-7.5 4.6c4.7 7.8 13.3 13 23 13 11.5 0 21.3-7 25.2-17 0-.3 0-.6.2-1 1-2 3.2-3 5-2.3 1 .5 1.8 1.7 2 3.2L83 64C78 76.8 65.7 86 51.4 86c-12.3 0-23-6.6-29-16.4l-7 4.3-.4-23.5z"/></svg></div>
+    </div>
+
+</body>
+<script src="js/jquery-3.2.0.min.js"></script>
+<script src="js/script.js"></script>
+
+
+</html>

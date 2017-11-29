@@ -1,0 +1,346 @@
+body,
+html {
+    height: 100vh;
+    margin: 0;
+    padding: 0
+}
+
+html {
+    font-size: 62.5%
+}
+
+body {
+    background: #000428;
+    background: -webkit-linear-gradient(to right, #004e92, #000428);
+    background: linear-gradient(to right, #004e92, #000428);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 334px;
+    min-height: 100vh
+}
+
+.checkSpace {
+    display: block;
+    height: auto;
+    margin-bottom: 30px;
+    width: 303px
+}
+
+#check {
+    -moz-box-shadow: 4px 4px 12px 0 rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 4px 4px 12px 0 rgba(0, 0, 0, 0.75);
+    background: #F7971E;
+    background: -webkit-linear-gradient(to right, #FFD200, #F7971E);
+    background: linear-gradient(to right, #FFD200, #F7971E);
+    border: 2px solid #000;
+    border-radius: 5px;
+    box-shadow: 4px 4px 12px 0 rgba(0, 0, 0, 0.75);
+    cursor: pointer;
+    display: block;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    padding: 10px 0;
+    width: 40%
+}
+
+#check:disabled {
+    background: #E0EAFC;
+    background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);
+    background: linear-gradient(to right, #CFDEF3, #E0EAFC);
+    border: 2px solid #fff;
+    cursor: not-allowed
+}
+
+.wrapper {
+    display: table;
+    height: 535px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    width: 334px
+}
+
+#board {
+    -moz-box-shadow: 4px 4px 12px 0 rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 4px 4px 12px 0 rgba(0, 0, 0, 0.75);
+    background-color: hsl(0, 0%, 90%);
+    background-image: -webkit-repeating-linear-gradient(left, hsla(0, 0%, 100%, 0) 0%, hsla(0, 0%, 100%, 0) 6%, hsla(0, 0%, 100%, .1) 7.5%), -webkit-repeating-linear-gradient(left, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, 0) 4%, hsla(0, 0%, 0%, .03) 4.5%), -webkit-repeating-linear-gradient(left, hsla(0, 0%, 100%, 0) 0%, hsla(0, 0%, 100%, 0) 1.2%, hsla(0, 0%, 100%, .15) 2.2%), linear-gradient(180deg, hsl(0, 0%, 78%) 0%, hsl(0, 0%, 90%) 47%, hsl(0, 0%, 78%) 53%, hsl(0, 0%, 70%)100%);
+    border: 2px solid #000;
+    border-radius: 10px;
+    box-shadow: 4px 4px 12px 0 rgba(0, 0, 0, 0.75);
+    display: table;
+    float: left;
+    margin: 0 auto;
+    min-width: 300px;
+    padding: 3px 0
+}
+
+.request {
+    display: inline-block;
+    float: left;
+    margin: 3px 0 0;
+    min-height: 45px;
+    min-width: 200px;
+    padding: 0;
+    text-align: center
+}
+
+.answer {
+    display: inline-block;
+    float: left;
+    margin: 8px 0 0 3px;
+    min-height: 50px;
+    min-width: 50px;
+    padding: 0;
+    text-align: center;
+    width: 50px
+}
+
+.socketBig {
+    -moz-box-shadow: inset 0 0 6px 0 rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: inset 0 0 6px 0 rgba(0, 0, 0, 0.75);
+    background-color: #a8a8a8;
+    border: 2px solid #000;
+    border-radius: 50%;
+    box-shadow: inset 0 0 6px 0 rgba(0, 0, 0, 0.75);
+    float: left;
+    height: 40px;
+    margin: 5px;
+    transition: background-color .15s;
+    width: 40px
+}
+
+#one {
+    -moz-box-shadow: inset 0 0 6px 0 rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: inset 0 0 6px 0 rgba(0, 0, 0, 0.75);
+    background-color: grey;
+    border: 2px solid #000;
+    border-radius: 50%;
+    box-shadow: inset 0 0 6px 0 rgba(0, 0, 0, 0.75);
+    float: left;
+    height: 35px;
+    margin: 5px;
+    width: 35px
+}
+
+.socketSmall {
+    -moz-box-shadow: inset 0 0 3px 0 rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: inset 0 0 3px 0 rgba(0, 0, 0, 0.75);
+    background-color: #a8a8a8;
+    border: 1px solid #000;
+    border-radius: 50%;
+    box-shadow: inset 0 0 3px 0 rgba(0, 0, 0, 0.75);
+    float: left;
+    height: 15px;
+    margin: 2px;
+    transition: background-color .5s;
+    width: 15px
+}
+
+.socketSmall .white {
+    background-color: #fff
+}
+
+.socketSmall .black {
+    background-color: #000
+}
+
+.level1,
+.level2,
+.level3,
+.level4,
+.level5,
+.level6,
+.level7,
+.level8,
+.level9 {
+    border-radius: inherit;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3px;
+    transition: background-color 0.5s, border-left 0.5s, border-right 0.5s, border-top 0.5s, border-bottom .5s
+}
+
+.level1 {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-left: 10px solid #000;
+    border-right: 10px solid #000
+}
+
+.level1 .request .socketBig {
+    cursor: pointer
+}
+
+.level9 {
+    border: 2px solid red;
+    display: none
+}
+
+.yourLevel {
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    -webkit-user-select: none;
+    color: #fff;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 20px;
+    margin: 7px 0 0;
+    text-shadow: 0 0 3px #000;
+    user-select: none
+}
+
+.gameStatus {
+    -moz-box-shadow: 4px 4px 12px 0 rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 4px 4px 12px 0 rgba(0, 0, 0, 0.75);
+    border: 2px solid #000;
+    border-radius: 5px;
+    box-shadow: 4px 4px 12px 0 rgba(0, 0, 0, 0.75);
+    color: #fff;
+    display: none;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 40px;
+    height: 50px;
+    margin: 10px auto 5px;
+    text-align: center;
+    text-shadow: 0 0 3px #000;
+    width: 300px
+}
+
+.gameStatus.winInfo {
+    background-color: green
+}
+
+.gameStatus.loseInfo {
+    background-color: red
+}
+
+#myBtn {
+    -moz-box-shadow: 4px 4px 12px 0 rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 4px 4px 12px 0 rgba(0, 0, 0, 0.75);
+    background: #870000;
+    background: -webkit-linear-gradient(to right, #190A05, #870000);
+    background: linear-gradient(to right, #190A05, #870000);
+    border: 2px solid #000;
+    border-radius: 5px;
+    box-shadow: 4px 4px 12px 0 rgba(0, 0, 0, 0.75);
+    color: #fff;
+    cursor: pointer;
+    float: right;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 20px;
+    position: relative;
+    right: -50px;
+    text-shadow: 0 0 3px #000;
+    top: 74px;
+    transform: rotate(90deg);
+    transition: all 1s ease
+}
+
+#myBtn:hover {
+    background: #870000
+}
+
+.modal {
+    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+    height: 100%;
+    left: 0;
+    overflow: auto;
+    padding-top: 5vh;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1
+}
+
+.modal-content {
+    background-color: #fefefe;
+    border: 1px solid #888;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 15px;
+    margin: auto;
+    max-width: 334px;
+    padding: 15px
+}
+
+.modal-content p {
+    text-align: center
+}
+
+.modal-content p:first-of-type {
+    font-weight: 700
+}
+
+.gameRules {
+    font-weight: 100
+}
+
+#link {
+    color: #dc143c;
+    font-style: italic
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 35px;
+    font-weight: 700
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    cursor: pointer;
+    text-decoration: none
+}
+
+.reset {
+    cursor: pointer;
+    fill: #fff;
+    height: 30px;
+    left: 40px;
+    position: relative;
+    width: auto;
+
+    -webkit-animation-duration: 4s;
+
+    animation-duration: 4s;
+    -webkit-animation-name: spin;
+    animation-name: spin;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        fill: #FFF;
+    }
+
+    50% {
+        fill: #000;
+    }
+    100% {
+        fill: #FFF;
+    }
+}
+
+@keyframes spin {
+    0% {
+        fill: #FFF;
+    }
+
+    50% {
+        fill: #000;
+    }
+    100% {
+        fill: #FFF;
+    }
+}
