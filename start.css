@@ -3,7 +3,7 @@ body {
     justify-content: center;
     text-align: center;
     flex-direction: column;
-	width: 100wh;
+	width: 100vw;
 	height: 90vh;
 	color: #fff;
 	background: linear-gradient(-45deg, #7938B2, #FFA619, #8800FF, #14CC57, #09B247);
