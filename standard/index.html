@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+    <title>Mastermind STANDARD</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Tomasz Kondraciuk - Mastermind GAME">
+    <meta name="keywords" content="front-end, Tomasz Kondraciuk, game, Mastermind, web">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta property="og:url" content="http://mm.tomaszkondraciuk.pl">
+    <meta property="og:title" content="Tomasz Kondraciuk - Mastermind GAME">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Tomasz Kondraciuk - Mastermind GAME">
+    <meta property="og:image" content="http://mm.tomaszkondraciuk.pl/screen_mm.png">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!--    LOGO-->
+    <p id="title">Mastermind</p>
+    <!--    guzik z zasadami gry-->
+    <button id="rulesBtn">GAME RULES</button>
+    <!--    guzik mute-->
+    <button id="muteBtn"><svg class="unmuteIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 384"><path d="M288 192c0-37.653-21.76-70.187-53.333-85.867v171.84C266.24 262.187 288 229.653 288 192zM0 128v128h85.333L192 362.667V21.333L85.333 128z"/><path d="M234.667 4.907V48.96C296.32 67.307 341.333 124.373 341.333 192S296.32 316.693 234.667 335.04v44.053C320.107 359.68 384 283.413 384 192S320.107 24.32 234.667 4.907z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 384" class="muteIcon"><path d="M288 192c0-37.653-21.76-70.187-53.333-85.867v47.147l52.373 52.373c.64-4.48.96-9.066.96-13.653zm53.333 0c0 20.053-4.373 38.933-11.52 56.32l32.32 32.32C376 254.08 384 224 384 192c0-91.307-63.893-167.68-149.333-187.093V48.96C296.32 67.307 341.333 124.373 341.333 192zM192 21.333L147.413 65.92 192 110.507zM27.2 0L0 27.2 100.8 128H0v128h85.333L192 362.667V219.2l90.773 90.773c-14.293 10.987-30.4 19.84-48.107 25.173V379.2c29.333-6.72 56.107-20.16 78.613-38.613L356.8 384l27.2-27.2-192-192L27.2 0z"/></svg>
+    </button>
+    <!--    guzik z rankingiem ranking-->
+    <button id="ranking">RANKING</button>
+    <!--    guzik dla daltonistow-->
+    <button id="colorblind"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 511.626 511.626" class="enableEye"><path d="M505.918 236.117c-26.651-43.587-62.485-78.609-107.497-105.065-45.015-26.457-92.549-39.687-142.608-39.687s-97.595 13.225-142.61 39.687C68.187 157.508 32.355 192.53 5.708 236.117 1.903 242.778 0 249.345 0 255.818c0 6.473 1.903 13.04 5.708 19.699 26.647 43.589 62.479 78.614 107.495 105.064 45.015 26.46 92.551 39.68 142.61 39.68 50.06 0 97.594-13.176 142.608-39.536 45.012-26.361 80.852-61.432 107.497-105.208 3.806-6.659 5.708-13.223 5.708-19.699 0-6.473-1.902-13.04-5.708-19.701zm-311.35-78.087c17.034-17.034 37.447-25.554 61.242-25.554 3.805 0 7.043 1.336 9.709 3.999 2.662 2.664 4 5.901 4 9.707 0 3.809-1.338 7.044-3.994 9.704-2.662 2.667-5.902 3.999-9.708 3.999-16.368 0-30.362 5.808-41.971 17.416-11.613 11.615-17.416 25.603-17.416 41.971 0 3.811-1.336 7.044-3.999 9.71-2.667 2.668-5.901 3.999-9.707 3.999-3.809 0-7.044-1.334-9.71-3.999-2.667-2.666-3.999-5.903-3.999-9.71 0-23.79 8.52-44.207 25.553-61.242zm185.299 191.01c-38.164 23.12-79.514 34.687-124.054 34.687-44.539 0-85.889-11.56-124.051-34.687s-69.901-54.2-95.215-93.222c28.931-44.921 65.19-78.518 108.777-100.783-11.61 19.792-17.417 41.207-17.417 64.236 0 35.216 12.517 65.329 37.544 90.362s55.151 37.544 90.362 37.544c35.214 0 65.329-12.518 90.362-37.544s37.545-55.146 37.545-90.362c0-23.029-5.808-44.447-17.419-64.236 43.585 22.265 79.846 55.865 108.776 100.783-25.31 39.022-57.046 70.095-95.21 93.222z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 511.626 511.627" class="unenableEye"><path d="M361.161 291.652c15.037-21.796 22.56-45.922 22.56-72.375 0-7.422-.76-15.417-2.286-23.984l-79.938 143.321c24.738-9.513 44.628-25.176 59.664-46.962zm11.711-197.431c.191-.378.28-1.235.28-2.568 0-3.237-1.522-5.802-4.571-7.715-.568-.38-2.423-1.475-5.568-3.287-3.138-1.805-6.14-3.567-8.989-5.282-2.854-1.713-5.989-3.472-9.422-5.28-3.426-1.809-6.375-3.284-8.846-4.427-2.479-1.141-4.189-1.713-5.141-1.713-3.426 0-6.092 1.525-7.994 4.569l-15.413 27.696c-17.316-3.234-34.451-4.854-51.391-4.854-51.201 0-98.404 12.946-141.613 38.831C70.998 156.08 34.836 191.385 5.711 236.114 1.903 242.019 0 248.586 0 255.819c0 7.231 1.903 13.801 5.711 19.698 16.748 26.073 36.592 49.396 59.528 69.949 22.936 20.561 48.011 37.018 75.229 49.396-8.375 14.273-12.562 22.556-12.562 24.842 0 3.425 1.524 6.088 4.57 7.99 23.219 13.329 35.97 19.985 38.256 19.985 3.422 0 6.089-1.529 7.992-4.575l13.99-25.406c20.177-35.967 50.248-89.931 90.222-161.878 39.972-71.949 69.95-125.815 89.936-161.599zM158.456 362.885C108.97 340.616 68.33 304.93 36.547 255.822c28.931-44.921 65.19-78.518 108.777-100.783-11.61 19.792-17.417 41.206-17.417 64.237 0 20.365 4.661 39.68 13.99 57.955 9.327 18.274 22.27 33.4 38.83 45.392l-22.271 40.262zm107.069-206.998c-2.662 2.667-5.906 3.999-9.712 3.999-16.368 0-30.361 5.808-41.971 17.416-11.613 11.615-17.416 25.603-17.416 41.971 0 3.811-1.336 7.044-3.999 9.71-2.668 2.667-5.902 3.999-9.707 3.999-3.809 0-7.045-1.334-9.71-3.999-2.667-2.666-3.999-5.903-3.999-9.71 0-23.79 8.52-44.206 25.553-61.242 17.034-17.034 37.447-25.553 61.241-25.553 3.806 0 7.043 1.336 9.713 3.999 2.662 2.664 3.996 5.901 3.996 9.707.001 3.808-1.333 7.044-3.989 9.703z"/><path d="M505.916 236.114c-10.853-18.08-24.603-35.594-41.255-52.534-16.646-16.939-34.022-31.496-52.105-43.68l-17.987 31.977c31.785 21.888 58.625 49.87 80.51 83.939-23.024 35.782-51.723 65-86.07 87.648-34.358 22.661-71.712 35.693-112.065 39.115l-21.129 37.688c42.257 0 82.18-9.038 119.769-27.121 37.59-18.076 70.668-43.488 99.216-76.225 13.322-15.421 23.695-29.219 31.121-41.401 3.806-6.476 5.708-13.046 5.708-19.702-.003-6.661-1.905-13.228-5.713-19.704z"/></svg>
+    </button>
+
+    <!--    guzik do menu glownego-->
+    <a href="http://www.mm.tomaszkondraciuk.pl/index.html" id="changeMode">MENU</a>
+
+
+    <!--    modal z zasadami-->
+    <div id="rulesModal" class="modal">
+        <div class="modal-content">
+            <!--            krzyzyk do zamykania-->
+            <span class="closeRules">&times;</span>
+            <p>Playing the Game</p>
+            <p class="gameRules">Once the code maker(computer) has created the secret code, the code breaker(you) may place any combination of colored guess pegs on the first line of 4 peg holes.</p>
+            <p class="gameRules">The code maker will use the white pegs, which indicate each peg that is a correct color but wrong position, or a black peg to indicate each peg is in a correct position and a right color. If neither are true, then no peg should be placed. The code maker may place these pegs in any order in the peg holes arranged in the square pattern next to the line of peg holes holding the guess pegs being answered.</p>
+            <p class="gameRules">The answer and guess pegs stay in their positions until the end of the game.</p>
+            <p class="gameRules">Play continues until the code is discovered or there are no remaining guesses.</p>
+            <!--            zrodlo zasad-->
+            <p class="gameRules"><a href="http://howdoyouplayit.com/mastermind-board-game-rules-how-do-you-play-mastermind" target="_blank" id="link">SOURCE</a></p>
+        </div>
+    </div>
+    <!--    modal z rankingiem-->
+    <div id="rankingModal" class="modal">
+        <div class="modal-content">
+            <!--            krzyzyk do zamykania-->
+            <span class="closeRanking">&times;</span>
+            <div id="rankingList">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>NICKNAME</td>
+                            <td>SCORE</td>
+                            <td>RANK</td>
+                        </tr>
+                    </thead>
+                    <tbody id="nextRow">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--modal z miejscem do wpisywania nickname-->
+    <div id="enterScoreModal" class="modal">
+
+        <div class="modal-content">
+            <!--            krzyzyk do zamykania-->
+            <span class="closeScore">&times;</span>
+
+
+            <div id="message"></div>
+            <form name='scoreForm' class="scoreForm">
+
+                <p>NEW HIGHSCORE!</p>
+                <label>ENTER YOUR NICKNAME</label>
+                <input type='text' placeholder='NICKNAME' name='nickname' id='nickname' required><br />
+
+                <p>YOUR SCORE</p>
+                <p id='score'></p>
+
+                <input type="button" id="savePlayer" value="Save" />
+
+            </form>
+
+        </div>
+    </div>
+    <!--    plansza do gry-->
+    <main class="board">
+        <div class="level1">
+            <p class="showLevel">1</p>
+            <div class="answer">
+                <div class="socketSmall"></div>
+                <div class="socketSmall"></div>
+                <div class="socketSmall"></div>
+                <div class="socketSmall"></div>
+
+            </div>
+            <div class="request">
+                <div class="socketBig"></div>
+                <div class="socketBig"></div>
+                <div class="socketBig"></div>
+                <div class="socketBig"></div>
+
+            </div>
+        </div>
+        <div class="level2">
+            <p class="showLevel">2</p>
+            <div class="answer">
+                <div class="socketSmall"></div>
+                <div class="socketSmall"></div>
+                <div class="socketSmall"></div>
+                <div class="socketSmall"></div>
+
+            </div>
+            <div class="request">
+                <div class="socketBig"></div>
+                <div class="socketBig"></div>
+                <div class="socketBig"></div>
+                <div class="socketBig"></div>
+
+            </div>
+        </div>
+        <div class="level3">
+            <p class="showLevel">3</p>
+            <div class="answer">
+                <div class="socketSmall"></div>
+                <div class="socketSmall"></div>
+                <div class="socketSmall"></div>
+                <div class="socketSmall"></div>
+
+            </div>
+            <div class="request">
+                <div class="socketBig"></div>
+                <div class="socketBig"></div>
+                <div class="socketBig"></div>
+                <div class="socketBig"></div>
+
+            </div>
+        </div>
+        <div class="level4">
+            <p class="showLevel">4</p>
+            <div class="answer">
+                <div class="socketSmall"></div>
+                <div class="socketSmall"></div>
+                <div class="socketSmall"></div>
+                <div class="socketSmall"></div>
+
+            </div>
+            <div class="request">
+                <div class="socketBig"></div>
+                <div class="socketBig"></div>
+                <div class="socketBig"></div>
+                <div class="socketBig"></div>
+
+            </div>
+        </div>
+        <div class="level5">
+            <p class="showLevel">5</p>
+            <div class="answer">
+                <div class="socketSmall"></div>
+                <div class="socketSmall"></div>
+                <div class="socketSmall"></div>
+                <div class="socketSmall"></div>
+
+            </div>
+            <div class="request">
+                <div class="socketBig"></div>
+                <div class="socketBig"></div>
+                <div class="socketBig"></div>
+                <div class="socketBig"></div>
+
+            </div>
+        </div>
+        <div class="level6">
+            <p class="showLevel">6</p>
+            <div class="answer">
+                <div class="socketSmall"></div>
+                <div class="socketSmall"></div>
+                <div class="socketSmall"></div>
+                <div class="socketSmall"></div>
+
+            </div>
+            <div class="request">
+                <div class="socketBig"></div>
+                <div class="socketBig"></div>
+                <div class="socketBig"></div>
+                <div class="socketBig"></div>
+
+            </div>
+        </div>
+        <div class="level7">
+            <p class="showLevel">7</p>
+            <div class="answer">
+                <div class="socketSmall"></div>
+                <div class="socketSmall"></div>
+                <div class="socketSmall"></div>
+                <div class="socketSmall"></div>
+
+            </div>
+            <div class="request">
+                <div class="socketBig"></div>
+                <div class="socketBig"></div>
+                <div class="socketBig"></div>
+                <div class="socketBig"></div>
+
+            </div>
+        </div>
+        <div class="level8">
+            <p class="showLevel">8</p>
+            <div class="answer">
+                <div class="socketSmall"></div>
+                <div class="socketSmall"></div>
+                <div class="socketSmall"></div>
+                <div class="socketSmall"></div>
+
+            </div>
+            <div class="request">
+                <div class="socketBig"></div>
+                <div class="socketBig"></div>
+                <div class="socketBig"></div>
+                <div class="socketBig"></div>
+
+            </div>
+        </div>
+        <!--        poziom z ukrytym szyfrem-->
+        <div class="level9">
+            <p class="secretCode">SECRET CODE</p>
+            <div class="request">
+                <div class="socketBig"></div>
+                <div class="socketBig"></div>
+                <div class="socketBig"></div>
+                <div class="socketBig"></div>
+
+            </div>
+        </div>
+        <!--        licznik-->
+        <p class="timeCounter">00:00:0</p>
+    </main>
+    <button id="check">CHECK!</button>
+    <!--    informacja o zwyciestwie-->
+    <div class="gameStatus winInfo">
+        <p class="resetText">YOU WON!</p>
+        <div class="resetContainer"><svg class="reset" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20 0C9 0 0 9 0 20v60c0 11 9 20 20 20h60c11 0 20-9 20-20V20c0-11-9-20-20-20H20zm28.6 14.2c12.3 0 23 6.6 29 16.4l7-4.3.4 23.5-20.8-11 7.5-4.6c-4.7-7.8-13.3-13-23-13-11.5 0-21.3 7-25.2 17 0 .3 0 .6-.2 1-1 2-3.2 3-5 2.3-1-.5-1.8-1.7-2-3.2L17 36C22 23.2 34.3 14 48.6 14zM15 50.2l20.8 11-7.5 4.6c4.7 7.8 13.3 13 23 13 11.5 0 21.3-7 25.2-17 0-.3 0-.6.2-1 1-2 3.2-3 5-2.3 1 .5 1.8 1.7 2 3.2L83 64C78 76.8 65.7 86 51.4 86c-12.3 0-23-6.6-29-16.4l-7 4.3-.4-23.5z"/></svg></div>
+    </div>
+    <!--    informacja o przegranej-->
+    <div class="gameStatus loseInfo">
+        <p class="resetText">YOU LOSE.</p>
+        <!--        reset gry-->
+        <div class="resetContainer"><svg class="reset" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path class="reset" d="M20 0C9 0 0 9 0 20v60c0 11 9 20 20 20h60c11 0 20-9 20-20V20c0-11-9-20-20-20H20zm28.6 14.2c12.3 0 23 6.6 29 16.4l7-4.3.4 23.5-20.8-11 7.5-4.6c-4.7-7.8-13.3-13-23-13-11.5 0-21.3 7-25.2 17 0 .3 0 .6-.2 1-1 2-3.2 3-5 2.3-1-.5-1.8-1.7-2-3.2L17 36C22 23.2 34.3 14 48.6 14zM15 50.2l20.8 11-7.5 4.6c4.7 7.8 13.3 13 23 13 11.5 0 21.3-7 25.2-17 0-.3 0-.6.2-1 1-2 3.2-3 5-2.3 1 .5 1.8 1.7 2 3.2L83 64C78 76.8 65.7 86 51.4 86c-12.3 0-23-6.6-29-16.4l-7 4.3-.4-23.5z"/></svg></div>
+    </div>
+    <script src="timer/dist/easytimer.min.js"></script>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+
+</html>
